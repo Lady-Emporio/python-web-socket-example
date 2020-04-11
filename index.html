@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <script>
+			console.log("before")
+			const webSocket = new WebSocket('ws://localhost:5678/echo');
+
+            webSocket.onopen = event => {
+                console.log('onopen');
+                webSocket.send("Hello Web Socket!");
+            };
+
+            webSocket.onmessage = event => {
+                console.log('onmessage, ' + event.data);
+            };
+
+            webSocket.onclose = event => {
+                console.log('onclose');
+            };
+        </script>
+    </head>
+    <body>
+    </body>
+</html>
